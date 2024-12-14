@@ -367,11 +367,11 @@ int32_t lv_display_get_offset_x(const lv_display_t * disp)
     else {
         switch(disp->rotation) {
             case LV_DISPLAY_ROTATION_90:
-                return disp->offset_y;
+                return lv_display_get_physical_horizontal_resolution(disp) - disp->offset_y;
             case LV_DISPLAY_ROTATION_180:
                 return lv_display_get_physical_horizontal_resolution(disp) - disp->offset_x;
             case LV_DISPLAY_ROTATION_270:
-                return lv_display_get_physical_horizontal_resolution(disp) - disp->offset_y;
+                return disp->offset_y;
             default:
                 return disp->offset_x;
         }
